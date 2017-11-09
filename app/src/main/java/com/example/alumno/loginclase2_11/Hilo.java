@@ -22,15 +22,18 @@ public class Hilo implements Runnable {
 
     android.os.Handler handler;
     Message message;
+    Modelo modelo;
 
-    public Hilo(android.os.Handler handler){
+    public Hilo(android.os.Handler handler, Modelo modelo){
+
         this.handler = handler;
+        this.modelo = modelo;
     }
 
     @Override
     public void run() {
 
-        byte[] bytes = getBytesData("http://192.168.2.238:3000/usuarios/");
+        byte[] bytes = getBytesData("http://192.168.1.38:3000/usuarios/"+modelo.getMail()+"/"+modelo.getClave());
         message.obj = new String(bytes);
         handler.sendMessage(message);
     }

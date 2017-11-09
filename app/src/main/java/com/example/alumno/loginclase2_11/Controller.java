@@ -1,5 +1,7 @@
 package com.example.alumno.loginclase2_11;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -16,31 +18,38 @@ public class Controller implements Handler.Callback {
 
     Handler handler;
     Thread t1;
-    Thread t2;
+    Activity activty;
+    Modelo modelo;
+    int codigo;
 
-    public Controller(){
+    public Controller(Activity activity, Modelo modelo){
+        this.activty = activity;
+        this.modelo = modelo;
         this.handler = new Handler(this);
-        this.t1 = new Thread(new Hilo(handler));
-        this.t2 = new Thread(new Hilo(handler));
-        t1.start();
-        t2.start();
+        this.t1 = new Thread(new Hilo(handler, modelo));
     }
 
     @Override
     public boolean handleMessage(Message msg) {
         try {
             JSONObject jsonObject = new JSONObject(msg.obj.toString());
+            codigo = jsonObject.getInt("codigo");
 
-            if(jsonObject.getInt("codigo") == 200){
-                //abro una nueva activity en blanco
-            }
-            else{
-                Log.d("respuesta", "El usuario o clave es incorrecto")
-            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return false;
+    }
+
+    public void Ingresar(){
+
+        if(codigo == 200){
+            Intent intent = new Intent(activty, Main2Activity.class);
+            activty.startActivity(intent);
+        }
+        else{
+            Log.d("respuesta", "El usuario o clave es incorrecto");
+        }
     }
 }
