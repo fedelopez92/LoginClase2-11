@@ -28,7 +28,26 @@
         android:layout_gravity="center"
         android:textColor="#000000"/>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="15dp"
+            android:textColor="#000000"/>
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:id="@+id/txtNombre"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -45,15 +64,32 @@
             android:layout_height="30dp"
             android:id="@+id/txtMail"
             android:textColor="#000000"/>
-        </LinearLayout>
-
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp">
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="DNI"
+            android:textSize="15dp"
+            android:textColor="#000000"/>
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:id="@+id/txtDNI"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
         <TextView
             android:layout_width="100dp"
@@ -68,13 +104,26 @@
             android:textColor="#000000"/>
     </LinearLayout>
 
-
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingresar"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:id="@+id/btnIngresar"/>
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Confirmar"
+            android:textSize="15dp"
+            android:textColor="#000000"/>
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:id="@+id/txtConfirmarPassword"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
 
     <Button
         android:layout_width="wrap_content"

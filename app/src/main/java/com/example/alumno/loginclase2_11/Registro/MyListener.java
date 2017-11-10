@@ -1,7 +1,5 @@
-package com.example.alumno.loginclase2_11;
+package com.example.alumno.loginclase2_11.Registro;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.View;
 
 /**
@@ -22,9 +20,10 @@ public class MyListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        modelo.setNombre(vista.nombre.getText().toString());
         modelo.setMail(vista.mail.getText().toString());
+        modelo.setDni(vista.dni.getText().toString());
         modelo.setClave(vista.clave.getText().toString());
         controller.t1.start();
-        controller.Ingresar();
     }
 }

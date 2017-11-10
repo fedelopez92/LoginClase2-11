@@ -1,4 +1,4 @@
-package com.example.alumno.loginclase2_11;
+package com.example.alumno.loginclase2_11.Registro;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +19,7 @@ public class Controller implements Handler.Callback {
     Thread t1;
     Activity activty;
     Modelo modelo;
-    int codigo;
+    JSONObject jsonObject;
 
     public Controller(Activity activity, Modelo modelo){
         this.activty = activity;
@@ -31,9 +30,9 @@ public class Controller implements Handler.Callback {
 
     @Override
     public boolean handleMessage(Message msg) {
-        try {
-            JSONObject jsonObject = new JSONObject(msg.obj.toString());
-            codigo = jsonObject.getInt("codigo");
+            try {
+                jsonObject = new JSONObject(msg.obj.toString());
+                Registrar();
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -42,14 +41,12 @@ public class Controller implements Handler.Callback {
         return false;
     }
 
-    public void Ingresar(){
+    public void Registrar(){
 
-        if(codigo == 200){
-            Intent intent = new Intent(activty, Main2Activity.class);
-            activty.startActivity(intent);
-        }
-        else{
-            Log.d("respuesta", "El usuario o clave es incorrecto");
+        try {
+            Log.d("texto", jsonObject.getString("mensaje"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

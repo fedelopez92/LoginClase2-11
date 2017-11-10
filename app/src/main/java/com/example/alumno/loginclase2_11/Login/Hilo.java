@@ -1,18 +1,19 @@
-package com.example.alumno.loginclase2_11;
+package com.example.alumno.loginclase2_11.Login;
 
-import android.app.Notification;
+import android.net.Uri;
 import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import java.io.ByteArrayInputStream;
+import com.example.alumno.loginclase2_11.Login.Modelo;
+
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.logging.Handler;
 
 /**
  * Created by alumno on 02/11/2017.
@@ -28,12 +29,13 @@ public class Hilo implements Runnable {
 
         this.handler = handler;
         this.modelo = modelo;
+        this.message = new Message();
     }
 
     @Override
     public void run() {
 
-        byte[] bytes = getBytesData("http://192.168.1.38:3000/usuarios/"+modelo.getMail()+"/"+modelo.getClave());
+        byte[] bytes = getBytesData("http://192.168.2.92:3000/usuarios/"+modelo.getMail()+"/"+modelo.getClave());
         message.obj = new String(bytes);
         handler.sendMessage(message);
     }
