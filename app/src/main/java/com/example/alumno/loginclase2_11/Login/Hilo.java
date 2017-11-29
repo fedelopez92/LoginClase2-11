@@ -35,7 +35,7 @@ public class Hilo implements Runnable {
     @Override
     public void run() {
 
-        byte[] bytes = getBytesData("http://192.168.2.92:3000/usuarios/"+modelo.getMail()+"/"+modelo.getClave());
+        byte[] bytes = getBytesData("http://192.168.1.38:3000/usuarios/"+modelo.getMail()+"/"+modelo.getClave());
         message.obj = new String(bytes);
         handler.sendMessage(message);
     }

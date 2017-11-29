@@ -33,7 +33,7 @@ public class Hilo implements Runnable {
     @Override
     public void run() {
 
-        byte[] bytes = getBytesDataByPOST("http://192.168.2.92:3000/usuarios/nuevo");
+        byte[] bytes = getBytesDataByPOST("http://192.168.1.38:3000/usuarios/nuevo");
         message.obj = new String(bytes);
         handler.sendMessage(message);
     }

@@ -42,7 +42,7 @@
             android:textColor="#000000"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:id="@+id/txtMail"
             android:textColor="#000000"/>
         </LinearLayout>
@@ -63,7 +63,7 @@
             android:textColor="#000000"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:id="@+id/txtPassword"
             android:textColor="#000000"/>
     </LinearLayout>
