@@ -1,6 +1,7 @@
 package com.example.alumno.loginclase2_11.Registro;
 
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
@@ -19,11 +20,11 @@ import java.net.URL;
 
 public class Hilo implements Runnable {
 
-    android.os.Handler handler;
+    Handler handler;
     Message message;
     Modelo modelo;
 
-    public Hilo(android.os.Handler handler, Modelo modelo){
+    public Hilo(Handler handler, Modelo modelo){
 
         this.handler = handler;
         this.modelo = modelo;
@@ -45,7 +46,7 @@ public class Hilo implements Runnable {
         Uri.Builder param = new Uri.Builder();
         param.appendQueryParameter("nombre", modelo.getNombre());
         param.appendQueryParameter("mail", modelo.getMail());
-        param.appendQueryParameter("dni", modelo.getMail());
+        param.appendQueryParameter("dni", modelo.getDni());
         param.appendQueryParameter("clave", modelo.getClave());
         String s = param.build().getEncodedQuery();//convierte el Uri.Builder en una query para enviar al servidor
 

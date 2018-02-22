@@ -1,6 +1,7 @@
 package com.example.alumno.loginclase2_11.Login;
 
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
@@ -21,11 +22,11 @@ import java.net.URL;
 
 public class Hilo implements Runnable {
 
-    android.os.Handler handler;
+    Handler handler;
     Message message;
     Modelo modelo;
 
-    public Hilo(android.os.Handler handler, Modelo modelo){
+    public Hilo(Handler handler, Modelo modelo){
 
         this.handler = handler;
         this.modelo = modelo;
